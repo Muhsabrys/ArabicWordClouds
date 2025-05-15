@@ -1,27 +1,47 @@
-function generateWordCloud() {
-    const container = document.getElementById('wordcloud-container');
-    const text = document.getElementById('text-input').value;
+// Function to reshape Arabic text for proper rendering
+function reshapeArabicText(text) {
+    return ArabicReshaper.convert(text);
+}
 
-    if (!text.trim()) {
-        alert('يرجى إدخال نص.');
+// Function to process input text and generate word list
+function processText(text) {
+    // Split text into words and count frequency
+    const words = text.trim().split(/\s+/);
+    const wordFreq = {};
+
+    words.forEach(word => {
+        word = reshapeArabicText(word);
+        wordFreq[word] = (wordFreq[word] || 0) + 1;
+    });
+
+    // Convert to wordcloud2.js format: [[word, freq], ...]
+    return Object.entries(wordFreq);
+}
+
+// Function to generate word cloud
+function generateWordCloud() {
+    const text = document.getElementById('textInput').value;
+    if (!text) {
+        alert('يرجى إدخال نص عربي!');
         return;
     }
 
-    const wordsArray = text.split(/\s+/)
-        .filter(word => word.length > 1) // Remove single letters
-        .map(word => [word, Math.floor(Math.random() * 50) + 10]); // Random weight
+    const wordList = processText(text);
 
-    container.innerHTML = ""; // Clear previous cloud
+    // Word cloud configuration
+    const options = {
+        list: wordList,
+        gridSize: 8,
+        weightFactor: 20,
+        fontFamily: 'Arial, sans-serif',
+        color: 'random-dark',
+        backgroundColor: '#fff',
+        rotateRatio: 0.5,
+        rotationSteps: 2,
+        shuffle: true,
+        drawOutOfBound: false
+    };
 
-    WordCloud(container, {
-        list: wordsArray,
-        fontFamily: 'Amiri, Cairo, Arial, sans-serif',
-        gridSize: 10,
-        weightFactor: 3,
-        backgroundColor: "#f8f9fa",
-        color: "random-dark",
-        rotateRatio: 0,
-        drawOutOfBound: false,
-        origin: [container.offsetWidth / 2, container.offsetHeight / 2]
-    });
+    // Generate word cloud
+    WordCloud(document.getElementById('cloudCanvas'), options);
 }
