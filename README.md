@@ -1,15 +1,17 @@
 # Arabic Word Cloud Generator
 
-This simple Python script generates a **word cloud** from Arabic text.
+A simple web-based tool to generate word clouds from Arabic text. This project uses `wordcloud2.js` for rendering word clouds and `arabic-reshaper` to ensure proper Arabic text display.
 
 ## Features
-- Supports Arabic script shaping and right-to-left display.
-- Removes common Arabic stopwords.
-- Saves the word cloud as an image (`wordcloud.png`).
+- Input Arabic text and generate a visually appealing word cloud.
+- Supports right-to-left (RTL) text rendering.
+- Responsive design for desktop and mobile devices.
+- Simple and clean user interface.
 
-## Requirements
+## Demo
+[Insert a link to a live demo if hosted, e.g., on GitHub Pages]
 
-Install the necessary packages:
-
-```bash
-pip install wordcloud matplotlib arabic-reshaper python-bidi
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/arabic-wordcloud.git
