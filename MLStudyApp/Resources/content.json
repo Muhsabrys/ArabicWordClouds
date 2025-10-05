@@ -1,0 +1,92 @@
+[
+  {
+    "id": "3e6e6c54-0b32-4d90-9b3c-d1747f8bc471",
+    "title": "Introduction to Machine Learning",
+    "subtitle": "How machines learn from data",
+    "content": [
+      {
+        "id": "a3c550c0-3f01-4e9f-a116-eebfab9e49d9",
+        "type": "text",
+        "text": "Machine learning is the study of computer algorithms that improve automatically through experience."
+      },
+      {
+        "id": "da31aefc-2a9d-4c60-834d-9a33fc5f9d1f",
+        "type": "bulletList",
+        "text": "Supervised learning\nUnsupervised learning\nReinforcement learning"
+      },
+      {
+        "id": "5c21ae9a-535c-4a39-9afc-f7d53390a22d",
+        "type": "callout",
+        "text": "Supervised learning requires labelled data—think of predicting house prices from past sales."
+      },
+      {
+        "id": "a807a3ef-5fc7-4b0f-a147-1f6a3b04f9f6",
+        "type": "code",
+        "code": "from sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "1bfa19a9-6ec1-43d6-8f70-32991e0e62d6",
+        "type": "multipleChoice",
+        "prompt": "Which learning paradigm requires labelled examples?",
+        "explanation": "Supervised learning uses labelled data to learn mappings between inputs and outputs.",
+        "options": [
+          {
+            "id": "6cc84d52-1b1d-4e6f-9204-3b29cb85ad40",
+            "text": "Supervised learning",
+            "isCorrect": true,
+            "feedback": "Correct! Labelled data is the hallmark of supervised learning."
+          },
+          {
+            "id": "08f0e3f0-c778-4e31-9d23-8df15afb8d1f",
+            "text": "Unsupervised learning",
+            "isCorrect": false,
+            "feedback": "Unsupervised learning works with unlabelled data."
+          },
+          {
+            "id": "7a53090f-8d67-4ab9-9b62-671d1a5f259c",
+            "text": "Reinforcement learning",
+            "isCorrect": false,
+            "feedback": "Reinforcement learning uses rewards and penalties instead of labelled examples."
+          }
+        ]
+      },
+      {
+        "id": "3b29d71e-5322-4f4b-b530-67813927bba3",
+        "type": "fillInTheBlank",
+        "prompt": "The process of splitting labelled data into training and test sets is called _______.",
+        "correctAnswer": "train test split",
+        "explanation": "We often perform a train/test split to evaluate generalisation."
+      },
+      {
+        "id": "ea5b2c7b-4fb5-4d85-8e63-9d7d7fdd71ce",
+        "type": "ordering",
+        "prompt": "Arrange the typical ML workflow steps in order.",
+        "options": [
+          {
+            "id": "f3f3ff8a-8f62-4db3-b11c-0cb24d0a786c",
+            "text": "Collect data",
+            "isCorrect": false
+          },
+          {
+            "id": "a892ad6a-d2fd-45e7-8ef0-fb4c19b6ad1f",
+            "text": "Train model",
+            "isCorrect": false
+          },
+          {
+            "id": "a125f1e1-a74e-4fc8-9f63-7a6a69bded1c",
+            "text": "Evaluate on test set",
+            "isCorrect": false
+          }
+        ],
+        "correctOrder": [
+          "f3f3ff8a-8f62-4db3-b11c-0cb24d0a786c",
+          "a892ad6a-d2fd-45e7-8ef0-fb4c19b6ad1f",
+          "a125f1e1-a74e-4fc8-9f63-7a6a69bded1c"
+        ],
+        "explanation": "Start with data collection, then train, then evaluate."
+      }
+    ]
+  }
+]
